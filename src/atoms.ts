@@ -3,6 +3,16 @@ import { recoilPersist } from "recoil-persist";
 import { TodosData } from "./common/interface/interface";
 
 
+export const refrashAtom = atom({
+  key: "refrash",
+  default: 0
+})
+
+export const enterAtom = atom({
+  key: "enter",
+  default: false
+})
+
 export const initCategoryStateAtom = atom<string[]>({
   key: "initCategory",
   default: []
@@ -32,4 +42,9 @@ export const todoStateSelector = selector({
     
     return toDos.filter((todo) => todo.category === category);
   }
+});
+
+export const modalOpenAtom = atom({
+  key: "modalOpen",
+  default: false
 });

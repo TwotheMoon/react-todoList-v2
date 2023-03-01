@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { categoryStateAtom, todoStateAtom } from "../atoms";
@@ -14,9 +15,16 @@ function CreateaToDo() {
     };
 
     return (
-        <form onSubmit={handleSubmit(handleValid)}>
-            <input {...register("todo", { required: "Please Write a To Do" })} />
-            <button>Add</button>
+        <form onSubmit={handleSubmit(handleValid)} style={{zIndex: 99}}>
+            <TextField
+                {...register("todo")}
+                label="Write ToDo"
+                variant="filled"
+                color="success"
+                size="small"
+                focused
+                sx={{width: "100%"}}
+            />
         </form>
     );
 }
